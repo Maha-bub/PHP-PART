@@ -3,30 +3,34 @@ session_start();
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-    $userName = $_POST['username'];
-    $userPass = $_POST['password'];
+    $userName = trim($_POST['username']);
+    $userPass = trim($_POST['password']);
 
-    $file = "store.txt";
-    $users = file($file);
+    $file = "database.txt";
 
-    $loginSuccess = false;
-
-    foreach($users as $user){
-        $user = trim($user);
-        list($storedUser, $storedPass) = explode(",", $user);
-
-        if($storedUser == $userName && $storedPass == $userPass){
-            $loginSuccess = true;
-            break;
-        }
-    }
-
-    if($loginSuccess){
-        $_SESSION['username'] = $userName;
-        header("Location: main.php");
-        exit();
+    if(!file_exists($file)){
+        $error = "No users found!";
     } else {
-        $error = "Invalid Username or Password!";
+
+        $users = file($file, FILE_IGNORE_NEW_LINES);
+        $loginSuccess = false;
+
+        foreach($users as $user){
+            list($storedUser, $storedEmail, $storedPass) = explode(",", $user);
+
+            if($storedUser == $userName && $storedPass == $userPass){
+                $loginSuccess = true;
+                break;
+            }
+        }
+
+        if($loginSuccess){
+            $_SESSION['username'] = $userName;
+            header("Location: main.php");
+            exit();
+        } else {
+            $error = "Invalid Username or Password!";
+        }
     }
 }
 ?>
@@ -52,6 +56,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         <input type="text" name="username" placeholder="Enter Username" required>
         <input type="password" name="password" placeholder="Enter Password" required>
         <button type="submit">Login</button>
+        <p style="text-align:center; margin-top:10px;">
+         Don't have an account? 
+        <a href="./registration.php">Register Now</a>
+        </p>
     </form>
 </div>
 
