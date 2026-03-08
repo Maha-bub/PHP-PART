@@ -23,16 +23,6 @@
     echo "<br>";
     var_dump($vtype);
 
-    //boolean
-    $vtype= true;
-    echo "<br>";
-    var_dump($vtype);
-
-    //boolean
-    $vtype= true;
-    echo "<br>";
-    var_dump($vtype);
-
 
     //interger
     $int = 33;

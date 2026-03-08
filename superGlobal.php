@@ -10,7 +10,7 @@ echo("<br>");
 
 echo $_SERVER['SERVER_PORT'];
 echo("<br>");
-echo $_SERVER['SERVER_ROOTS'];
+echo $_SERVER['DOCUMENTS_ROOT'];
 echo("<br>");
 
 ?>
