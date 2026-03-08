@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
  <html lang="en">
  <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
     $num2=60;
     function multiplication(){
         global $num;
-        global $num2;
+        global $num2; 
         $multiply=$num*$num2;
         echo $multiply;
     }
