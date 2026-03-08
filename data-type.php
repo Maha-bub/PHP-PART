@@ -23,6 +23,16 @@
     echo "<br>";
     var_dump($vtype);
 
+    //boolean
+    $vtype= true;
+    echo "<br>";
+    var_dump($vtype);
+
+    //boolean
+    $vtype= true;
+    echo "<br>";
+    var_dump($vtype);
+
 
     //interger
     $int = 33;
@@ -34,6 +44,26 @@
      $f= 1.33;
     echo "<br>";
     var_dump($f);
+
+
+
+
+
+    //compoundpart
+    //array part
+     $ary = array("a", "b", "c",10);
+     var_dump($ary);
+    echo "<br>";
+    print_r($ary);
+
+    //object
+    //example
+    class student1
+    {
+        public $same = "lucky";
+    }
+    $obj2 = new student1();
+    echo $ob
 
     ?>
 </body>
