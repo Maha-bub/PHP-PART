@@ -11,7 +11,7 @@
     ?>
 
     <form action="#">
-        <label for="">User Name:</label>
+        <label for="">User Name:</label> <br>
         <input type="text" name="userName"><br>
         <input type="Submit" name="Submit">
     </form>
