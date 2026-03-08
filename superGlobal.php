@@ -12,5 +12,13 @@ echo $_SERVER['SERVER_PORT'];
 echo("<br>");
 echo $_SERVER['DOCUMENTS_ROOT'];
 echo("<br>");
+echo $_SERVER['SERVER_PORT'];
+echo("<br>");
+echo $_SERVER['DOCUMENTS_ROOT'];
+echo("<br>");
+echo $_SERVER['SERVER_PORT'];
+echo("<br>");
+echo $_SERVER['DOCUMENTS_ROOT'];
+echo("<br>");
 
 ?>
