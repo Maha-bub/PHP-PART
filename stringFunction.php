@@ -20,6 +20,8 @@ echo ucfirst($name);
 
 
 echo "<br>";
+$num=54.514;
+echo round($num,2);
 
 echo "<br>";
 echo str_replace("Turna Rahman","mahabubul alam",$name);
