@@ -11,11 +11,10 @@
     function addition(&$value)
     {
         $sum = 0;
-
         $sum += $value;
     }
     $number = 5;
-    $result = addition($number);
+    addition($number);
     echo $number;
 
     ?>
