@@ -19,5 +19,3 @@ echo date("H:i:s") . "\n";                         // 17:16:18
 echo "<br>";
 echo date("Y-m-d H:i:s") . "\n";                   // 2001-03-10 17:16:18 (the MyS
 echo "<br>";
-
-?>
