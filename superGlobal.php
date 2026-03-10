@@ -1,4 +1,6 @@
 <?php
+
+// server request
 echo $_SERVER['SERVER_NAME'];
 echo("<br>");
 
