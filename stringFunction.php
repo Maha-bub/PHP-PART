@@ -17,10 +17,15 @@ echo "<br>";
 echo ucwords($name);
 echo "<br>";
 echo ucfirst($name);
+$num=54.514;
+echo "<br>";
+echo intval($num);
+echo "<br>";
+echo pow($num,2);
 
 
 echo "<br>";
-$num=54.514;
+
 echo round($num,2);
 
 echo "<br>";
