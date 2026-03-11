@@ -53,7 +53,7 @@
         public $same = "lucky";
     }
     $obj2 = new student1();
-    echo $ob
+    echo $obj2;
 
     ?>
 </body>
