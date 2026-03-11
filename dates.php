@@ -22,7 +22,7 @@ echo "<br>";
 echo date_default_timezone_get() . date("h");
 echo "<br>";
 
-$age = (new DateTime('2002-05-15'))->diff(new DateTime())->y;
+$age = (new DateTime('2000-05-15'))->diff(new DateTime())->y;
 echo $age;
 echo "<br>";
 echo "<br>";
