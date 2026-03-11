@@ -2,10 +2,11 @@
 $FavColor = array(
     "turna" => "pink",
     "Liyes" => "blue",
-    "Meem" => "black",
+    "Meem" => 15,
     "Sumi" => "navy",
     "anita" => "skybl",
 );
+
 
 foreach ($FavColor as $color => $value) {
     echo $value;
