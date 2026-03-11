@@ -19,3 +19,11 @@ echo date("H:i:s") . "\n";                         // 17:16:18
 echo "<br>";
 echo date("Y-m-d H:i:s") . "\n";                   // 2001-03-10 17:16:18 (the MyS
 echo "<br>";
+echo date_default_timezone_get() . date("h");
+echo "<br>";
+
+$age = (new DateTime('2002-05-15'))->diff(new DateTime())->y;
+echo $age;
+echo "<br>";
+echo "<br>";
+echo "<br>";
