@@ -7,8 +7,14 @@ $FavColor = array(
     "anita" => "skybl",
 );
 
+$name = array_key($FavColor);
+$values =$name[2];
+$secondValue= $values[$values];
+echo $secondValue .":". $values;
 
-foreach ($FavColor as $color => $value) {
-    echo $value;
-    echo "<br>";
-}
+
+
+// foreach ($FavColor as $color => $value) {
+//     echo $value;
+//     echo "<br>";
+// }
