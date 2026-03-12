@@ -8,8 +8,8 @@ for ($i = 0; $i < count($char); $i++) {
     echo "<p><b>catergory-$i<p></b>";
     // echo "<ul>";
     for ($j = 0; $j < count($char[$i]); $j++) {
-        echo  $char[$i][$j] . " ";
+        echo "<li>". $char[$i][$j] . "</li>";
         echo "<br>";
     };
-    echo " <br>";
+    // echo "<ul>";
 }
