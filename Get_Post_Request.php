@@ -1,8 +1,5 @@
 <?php
-// if(isset($_POST["userName"]) && $_POST["Pass"] == "")
 
-//  
-//  echo $name;
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $name = $_REQUEST['userName'];
