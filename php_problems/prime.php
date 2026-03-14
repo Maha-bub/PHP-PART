@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
+
+    
     if ($count == 0) {
         echo "This is a prime number.";
     } else {
