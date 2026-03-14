@@ -19,16 +19,16 @@
 
         $letter = $_POST["letter"];
 
-        if (
-            $letter == 'a' || $letter == 'e' || $letter == 'i' || $letter == 'o' || $letter == 'u' ||
-            $letter == 'A' || $letter == 'E' || $letter == 'I' || $letter == 'O' || $letter == 'U'
-        ) {
-            echo "It is a Vowel";
+        if (!ctype_alpha($letter)) {
+            echo "Please enter a valid alphabet";
+        } elseif (in_array(strtolower($letter), ['a', 'e', 'i', 'o', 'u'])) {
+            echo "Vowel";
         } else {
-            echo "It is a Consonant";
+            echo "Consonant";
         }
     }
     ?>
+
 </body>
 
 </html>
