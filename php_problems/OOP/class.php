@@ -17,13 +17,23 @@ class car{
 
     } 
 
+    function change_car_model($model_name){
+        $this->name=$model_name;
+        return $this->name;
+    }
+
 }
 
 $class_object= new car();
 echo $class_object->color;
+echo "</br>";
+echo $class_object->Name;
 echo "<br>";
 echo $class_object->indentity();
 echo "<br>";
-echo $class_object->change_color("black")
+echo $class_object->change_color("black");
+
+echo "</br>";
+echo $class_object->change_car_model("Marcedes");
 
 ?>
