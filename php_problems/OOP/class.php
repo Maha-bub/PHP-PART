@@ -1,7 +1,7 @@
 <?php
 
 class car{
-    public $Name="BMW";
+    public $name="BMW";
     public $color="red";
     public $model="sd12";
 
@@ -27,9 +27,9 @@ class car{
 $class_object= new car();
 echo $class_object->color;
 echo "</br>";
-echo $class_object->Name;
+echo $class_object->name;
 echo "<br>";
-echo $class_object->indentity();
+$class_object->indentity();
 echo "<br>";
 echo $class_object->change_color("black");
 
