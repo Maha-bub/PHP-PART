@@ -4,10 +4,10 @@ class Student
     public $name;
     public $age;
 
-    public function __construct($n, $a)
+    public function __construct($name, $age)
     {
-        $this->name = $n;
-        $this->age = $a;
+        $this->name = $name;
+        $this->age = $age;
     }
 
     public function info()
@@ -16,6 +16,5 @@ class Student
         echo "Age: " . $this->age;
     }
 }
-
 $s1 = new Student("Mahabub", 22);
 $s1->info();
