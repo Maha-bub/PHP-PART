@@ -4,3 +4,5 @@ $FavColor = array("Sobuj" => "green", "Rohan" => "red", "Ashik" => "Blue", "Maha
 foreach ($FavColor as $person => $value) {
     echo "<br>Favorite color of $person is $value";
 }
+
+?>
