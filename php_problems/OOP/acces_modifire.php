@@ -3,10 +3,9 @@ class Student{
     private $name="Mahabub";
     protected $age=25;
     
-    public function __construct() {
-    }
+   
     
-    function names(){
+    public function names(){
         echo "My name is ".$this->name;
 
     }
