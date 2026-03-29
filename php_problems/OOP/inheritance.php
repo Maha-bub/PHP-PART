@@ -1,11 +1,11 @@
 <?php
  class Students
  {
-    public $name;
-    public $age;
-    public $address;
-    public $id;
-    public $subject;
+    public string $name = '';
+    public int $age = 0;
+    public string $address = '';
+    public int $id = 0;
+    public string $subject = '';
     public function StudentInfo($name){
         echo "My name is".$this->name;
     }
@@ -18,7 +18,7 @@
     }
  }
  class Teacher extends Students{
-    public $exerience;
+    public string $exerience = '';
     public function teacherInfo(){
         echo "I am a teacher";
     }
@@ -46,8 +46,5 @@ echo "<br>";
 $authority_info=new Authority();
 
  echo $authority_info->designation;
-
-
-
 
 ?>
