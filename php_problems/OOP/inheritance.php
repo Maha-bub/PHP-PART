@@ -9,7 +9,7 @@
     public function StudentInfo($name){
         echo "My name is".$this->name;
     }
-    public fu function __construct(){
+    public function __construct(){
         echo "Hello world";
     }
     public function __destruct(){
@@ -17,16 +17,32 @@
 
     }
  }
- class teacher extends Students{
+ class Teacher extends Students{
     public $exerience;
-    public fu nction teacherInfo(){
+    public function teacherInfo(){
         echo "I am a teacher";
     }
  }
 
- $all_info=new Students();
- $all_info->address="dhaka";
-    echo $all_info->address;
+ class Authority extends Teacher{
+    public $designation='Principal';
+    public function authorityMsg(){
+        echo "I am the principal of this school";
+    }
+ }
+
+ $students_info=new Students();
+ echo "<br>";
+ $students_info->address="dhaka";
+ echo "<br>";
+    echo $students_info->address;
+
+$teacher_info=new Teacher();
+echo "<br>";
+$teacher_info->teacherInfo();
+echo "<br>";
+
+
 
 
 ?>
