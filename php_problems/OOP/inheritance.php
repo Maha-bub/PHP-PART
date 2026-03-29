@@ -25,9 +25,10 @@
  }
 
  class Authority extends Teacher{
-    public $designation='Principal';
+    public $designation="Principal";
     public function authorityMsg(){
         echo "I am the principal of this school";
+        echo "<br>".$this ->designation;
     }
  }
 
@@ -41,6 +42,8 @@ $teacher_info=new Teacher();
 echo "<br>";
 $teacher_info->teacherInfo();
 echo "<br>";
+
+$authority_info=new Authority();
 
 
 
