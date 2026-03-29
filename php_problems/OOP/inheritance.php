@@ -36,7 +36,7 @@
  echo "<br>";
  $students_info->address="dhaka";
  echo "<br>";
-    echo $students_info->address;
+ echo $students_info->address;
 
 $teacher_info=new Teacher();
 echo "<br>";
@@ -44,6 +44,8 @@ $teacher_info->teacherInfo();
 echo "<br>";
 
 $authority_info=new Authority();
+
+ echo $authority_info->designation;
 
 
 
