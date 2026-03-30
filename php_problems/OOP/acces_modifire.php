@@ -13,6 +13,8 @@ class Student{
 
 $identity=new Student();
 
+
+
 // name is private so we can't access it outside the class.
 // echo $identity->name;
 
