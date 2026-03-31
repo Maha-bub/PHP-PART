@@ -13,9 +13,13 @@
 
         public static function Info(){
             echo "This is static method <br>";
+
         }
     }
     
+    echo User::$name;
+    echo User::name;
+    echo User::Info();
     
     ?>
 </body>
