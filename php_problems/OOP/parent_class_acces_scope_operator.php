@@ -14,13 +14,16 @@
 }
 
 class ChildClass extends ParentClass {
-    public function display() {
+    public static function display() {
         parent::show();
     }
 }
 
-$obj = new ChildClass();
-$obj->display();
+ChildClass::display();
+// $obj = new ChildClass();
+// $obj->display();
 ?>
+?>
+
 </body>
 </html>
