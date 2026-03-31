@@ -9,14 +9,24 @@
     <?php
     Class User{
         public static $name="Hello Word!"."<br>";
-        const name="Hello Word!"."<br>";
+        const name="I'm  ". "Mahabub Alam"."<br>";
 
         public static function Info(){
             echo "This is static method <br>";
 
         }
     }
+
+    class Test {
+    public static function sayHello() {
+        echo "Hello World";
+    }
+}
+
+Test::sayHello();
     
+    // $result=new User();
+    // $result->Info();
     echo User::$name;
     echo User::name;
     echo User::Info();
