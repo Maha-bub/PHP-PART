@@ -7,4 +7,6 @@ I'm a runnig trainee of IsDB BISEW IT Scholourship Programm.
 I'm happy to announch that i am learning new programming related topics everyday.\n";
 fwrite($open, $txt);
 fclose($open);
+
+
 ?>
