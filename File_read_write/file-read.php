@@ -3,5 +3,9 @@
 // echo fread($open, filesize("file.txt"));    
 // fclose($open);    
 
-$document=fopen("file.txt","r") or die("Unable to open file!");
+$document=fopen("file.txt","r");
+echo fread($document, filesize("file.txt"));
+fclose($document);
+?>
+
 ?>
