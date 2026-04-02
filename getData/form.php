@@ -13,6 +13,8 @@
 ?>
 
 <?php
+
+class User_Input {
 public $id;
 public $name;
 public static fileName="store.txt";
@@ -20,10 +22,26 @@ public static fileName="store.txt";
  public function __construct($id, $name) {
     $this->id = $id;
     $this->name = $name;
-}   
+}  
+} 
  public function Child(){
-    $data = "ID: " . $this->id . " | Name: " . $this->name . "\n";
-    file_put_contents(self::$fileName, $data, FILE_APPEND); 
+   return $this->id.",".$this->name."\n"; 
+ }
+ public function saveToFile(){
+   file_put_contents(self::$fileName, $this->Child(), FILE_APPEND);
+   $this->Child(),FILE_APPEND;
+ }   
+?>
+
+<?php
+if(isset($_POST['submit']) ){
+
+    $userInputId = $_POST['id'];
+    $userInputName = $_POST['name'];
+    $userInput = new User_Input($userInputId, $userInputName);
+    $userInput->saveToFFile();
+}
+
 ?>
 <!DOCTYPE html>
 <html>

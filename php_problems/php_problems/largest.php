@@ -11,8 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "$number3 is largest.";
     }
 }
-
-
 ?>
 
 <!DOCTYPE html>
