@@ -1,15 +1,29 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Form থেকে data গুলি নেয়া
-    $id = $_POST['id'];
-    $name = $_POST['name'];
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     // Form থেকে data গুলি নেয়া
+//     $id = $_POST['id'];
+//     $name = $_POST['name'];
 
-    // data তৈরি করা
-    $data = "ID: " . $id . " | Name: " . $name . "\n";
+//     // data তৈরি করা
+//     $data = "ID: " . $id . " | Name: " . $name . "\n";
 
-    // 'store.txt' ফাইলে data write করা
-    file_put_contents('store.txt', $data, FILE_APPEND);  // FILE_APPEND মানে পুরানো data কে overwrite না করে নতুন data যোগ করবে
-}
+//     // 'store.txt' ফাইলে data write করা
+//     file_put_contents('store.txt', $data, FILE_APPEND);  // FILE_APPEND মানে পুরানো data কে overwrite না করে নতুন data যোগ করবে
+// }
+?>
+
+<?php
+public $id;
+public $name;
+public static fileName="store.txt";
+
+ public function __construct($id, $name) {
+    $this->id = $id;
+    $this->name = $name;
+}   
+ public function Child(){
+    $data = "ID: " . $this->id . " | Name: " . $this->name . "\n";
+    file_put_contents(self::$fileName, $data, FILE_APPEND); 
 ?>
 <!DOCTYPE html>
 <html>
