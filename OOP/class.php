@@ -6,7 +6,7 @@ class car{
     public $model="sd12";
 
 
-    function indentity(){
+    public function indentity(){
         echo "Hi, I'm Mahabub Alam.";
     }
 
