@@ -10,7 +10,8 @@ class car{
         echo "Hi, I'm Mahabub Alam.";
     }
 
-    //Change property value
+  
+    
     function change_color($color){
         $this->color=$color;
         return $this->color;
