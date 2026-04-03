@@ -20,13 +20,13 @@
  }
 
  $carObject=new Car();
-//  echo $carObject->name;
-//  echo "<br>";
-// echo $carObject->name='BMW';
-// echo "<br>";
+// //  echo $carObject->name;
+// //  echo "<br>";
+// // echo $carObject->name='BMW';
+// // echo "<br>";
 
-echo $carObject->Change_Name("Toyota");
-// echo $carObject->name;
+// echo $carObject->Change_Name("Toyota");
+// // echo $carObject->name;
 
 
 
