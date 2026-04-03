@@ -18,4 +18,11 @@
 
  $carObject=new Car();
  echo $carObject->name;
+ echo "<br>";
+echo $carObject->name='BMW';
+echo "<br";
+
+$carObject->Exchange("Toyota");
+echo $carObject->name;
+ 
 ?>
