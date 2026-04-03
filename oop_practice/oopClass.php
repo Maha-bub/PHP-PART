@@ -8,21 +8,31 @@
 
     }
 
-    public function Exchange($Exchangename){
+    public function Change_Name($Exchangename){
         $this->name = $Exchangename;
         return $this->name;
     }
- 
 
+        public function getchange_Model($ExchangeModel)
+    { $this->model=$ExchangeModel;
+        return $this->model;
+    }
  }
 
  $carObject=new Car();
- echo $carObject->name;
- echo "<br>";
-echo $carObject->name='BMW';
-echo "<br";
+//  echo $carObject->name;
+//  echo "<br>";
+// echo $carObject->name='BMW';
+// echo "<br>";
 
-$carObject->Exchange("Toyota");
-echo $carObject->name;
+echo $carObject->Change_Name("Toyota");
+// echo $carObject->name;
+
+
+
+echo "<br>";
+echo $carObject->model;
+echo "<br>";
+echo $carObject-> getchange_Model("series100Pro");
  
 ?>
