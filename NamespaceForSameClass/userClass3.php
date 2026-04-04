@@ -11,8 +11,7 @@ class ThirdUser{
     }
 }
 
-$userMsg=new ThirdUser();
-$userMsg->userInfo();
+
 
 
 ?>

@@ -9,6 +9,5 @@
     }
    }
 
-   $userData=new User();
-   $userData->UserInfo();
+  
 ?>

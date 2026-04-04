@@ -10,8 +10,7 @@ class LastUser{
     }
 }
 
-$userMsg=new LastUser();
-$userMsg->userInfo();
+
 
 
 ?>

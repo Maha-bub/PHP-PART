@@ -10,7 +10,6 @@ class SecondUser{
     }
 }
 
-$userMsg=new SecondUser();
-$userMsg->userInfo();
+
 
 ?>
