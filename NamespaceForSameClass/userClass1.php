@@ -1,0 +1,14 @@
+<?php
+   class User{
+    public $name="Mahabub";
+    public $id=1235;
+    public $designation="Jr. Developer";
+
+    public function UserInfo(){
+        echo "Hi, This is ".$this->name." I'm working as a ".$this->designation." at New Horizonse Learning Center.";
+    }
+   }
+
+   $userData=new User();
+   $userData->UserInfo();
+?>
