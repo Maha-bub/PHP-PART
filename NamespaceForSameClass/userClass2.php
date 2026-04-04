@@ -1,6 +1,8 @@
 <?php
 
-class SecondUser{
+namespace UserTwo;
+
+class User{
     public $name="Hasibul Polok";
     public $designation="Sr. Developer";
 

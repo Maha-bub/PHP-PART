@@ -1,6 +1,8 @@
 <?php
 
-class LastUser{
+namespace UserFour;
+
+class User{
     public $name="Liyes";
     public $designation="Jr. Developer";
 
@@ -9,8 +11,6 @@ class LastUser{
         echo "Hi, I'm ".$this->name." working as a ".$this->designation;
     }
 }
-
-
 
 
 ?>

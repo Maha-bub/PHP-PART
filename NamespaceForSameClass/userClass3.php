@@ -1,7 +1,7 @@
-
 <?php
+namespace UserThree;
 
-class ThirdUser{
+class User{
     public $name="Tanjil Hossain";
     public $designation="Sr. Developer";
 
