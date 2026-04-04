@@ -9,7 +9,5 @@
     public function userInfo(){
         echo "Hi, This is ".$this->name." I'm working as a ".$this->designation." at New Horizonse Learning Center.";
     }
-   }
-
-  
+   }  
 ?>

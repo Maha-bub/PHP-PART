@@ -11,6 +11,4 @@ class User{
         echo "Hi, I'm ".$this->name." working as a ".$this->designation;
     }
 }
-
-
 ?>
