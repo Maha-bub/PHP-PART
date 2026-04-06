@@ -18,8 +18,4 @@ $descrp="Working as a Senior Software Engineer.";
 $syntexPattern="/Senior/";
 echo preg_replace($syntexPattern,"Junior",$descrp);
 
-
-
-
-
 ?>

@@ -1,0 +1,4 @@
+<?php
+$fileName=-f
+
+?>
