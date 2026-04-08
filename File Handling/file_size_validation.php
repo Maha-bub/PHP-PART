@@ -2,22 +2,20 @@
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $fileName=$_FILES['file']['name'];
     $fileLocation=$_FILES['file']['tmp_name'];
-    // $fileType=pathinfo($fileName,PATHINFO_EXTENSION);
-    $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-    $folder="img/";
+    $fileType=pathinfo($fileName,PATHINFO_EXTENSION);
+    $fileSize=$_FILES['file']['size'];
+    $size=$fileSize/1024;
 
-    if(empty($fileName)){
-        echo "Please select a file";
-    }
 
-    else if($fileType=="jpg"||$fileType=="png" || $fileType=="svg"){
-        move_uploaded_file($fileLocation,$folder.$fileName);
-        echo "<br>";
-        echo "<img src='" . $folder . $fileName . "' width='400px' alt=''>";
 
-    }else{
-        echo "Only Jpg, png or svg file allow to uplode";
-}
+
+
+ if($size<400){
+    move_uploaded_file($fileLocation,"img/".$fileName);
+
+ }else{
+    echo "File size allow to maximum size 400kbyte";
+ }
 }
 
 ?>
