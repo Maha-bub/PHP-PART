@@ -12,12 +12,15 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
     else if($fileType=="jpg"||$fileType=="png" || $fileType=="svg"){
         move_uploaded_file($fileLocation,$folder.$fileName);
-        echo "<br>";
-        echo "<img src='" . $folder . $fileName . "' width='400px' alt=''>";
+        
+        
 
     }else{
         echo "Only Jpg, png or svg file allow to uplode";
 }
+        echo "<img src='" . $folder . $fileName . "' width='400px' alt=''>";
+        echo "<br>";
+        echo "File uploded and stored successfully.";
 }
 
 ?>
