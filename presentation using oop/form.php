@@ -1,13 +1,13 @@
-<?php
+    <?php
 include "class.php";
 
-// SAVE
-if ($_SERVER["REQUEST_METHOD"]==="post") {
+// Data Get and check methods.
+if ($_SERVER["REQUEST_METHOD"]==="POST" && isset($_POST["btnsubmit"])) {
     $name= $_POST["name"];
     $id=$_POST["id"];
-    $address=$_POST["address"];
-    $s = new Student();
-    $s->format();
+    $Course=$_POST["Course"];
+    $s = new InfoAll($name, $id, $Course);
+    $s->data_Store_Style();
 }
 
 ?>
@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"]==="post") {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple System</title>
+    <title>Details of a person.</title>
     <style>
         body {
-            font-family: Arial;
+            font-family: Arial, Helvetica, sans-serif;
             background: #f2f2f2;
             text-align: center;
         }
@@ -27,20 +27,25 @@ if ($_SERVER["REQUEST_METHOD"]==="post") {
             background: white;
             padding: 20px;
             margin: 20px auto;
-            width: 300px;
+            width: 600px;
             border-radius: 10px;
         }
 
         input, button {
-            width: 90%;
+            width: 95%;
             padding: 8px;
-            margin: 5px;
+            margin: 5px auto;
+
         }
 
         button {
-            background: green;
+             width: 100%;
+            padding: 8px;
+            margin: 5px auto;
+            background: #d0ad2f;
             color: white;
             border: none;
+            border-radius: 10px;
         }
 
         table {
@@ -63,24 +68,27 @@ if ($_SERVER["REQUEST_METHOD"]==="post") {
 </head>
 <body>
 
-<h2>Student Form</h2>
+<h2>Information Form</h2>
 
 <form method="post">
     <input type="text" name="name" placeholder="Name" required><br>
     <input type="text" name="id" placeholder="ID" required><br>
-    <input type="text" name="address" placeholder="Address" required><br>
-    <button name="submit">Save</button>
+    <input type="text" name="Course" placeholder="Course" required><br>
+    <button name="btnsubmit">Save</button>
 </form>
 
 <table>
-<tr>
+     <?php
+if(isset($_POST["btnsubmit"])){
+    echo "<tr>
     <th>Name</th>
     <th>ID</th>
-    <th>Address</th>
-</tr>
+    <th>Course</th>
+</tr>";
 
-<?php 
- $s->display();
+$s = new InfoAll(" ", " ", " ");    
+$s->display();
+}
 
 ?>
 
