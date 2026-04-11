@@ -12,7 +12,7 @@ class Person
     }
 }
 
-class Student extends Person
+class InfoAll extends Person
 {
     public $id;
 
@@ -22,7 +22,7 @@ class Student extends Person
         $this->id = $id;
     }
 
-    function format()
+    function data_Store_Style()
     {
         $line = $this->name . "," . $this->id . "," . $this->address . "\n";
         file_put_contents("database.txt", $line, FILE_APPEND);
