@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
 <form method="post" enctype="multipart/form-data">
     <input type="file" name="file">
-    <input type="submit" value="Upload">
+    <input type="submit" name="btnsumbit" value="Upload">
 </form>
 
 <h2>All Uploaded Images:</h2>
@@ -32,10 +32,13 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 <?php
 $folder = "img/";
 $files = scandir($folder);
-
-foreach($files as $file){
+if(isset($_POST)==['btnsumbit']){
+    foreach($files as $file){
     if($file != "." && $file != ".."){
         echo "<img src='".$folder.$file."' width='200px' height='200px' style='margin:10px;'>";
     }
 }
+
+}
+
 ?>
