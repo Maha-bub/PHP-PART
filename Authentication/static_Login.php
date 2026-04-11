@@ -8,6 +8,7 @@ if(isset($_POST['btnSubmit'])){
 
     $users = file($file);
 
+
     $loginSuccess = false;
 
     foreach($users as $user){
