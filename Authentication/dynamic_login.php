@@ -11,11 +11,11 @@
         <form method="POST" action="">
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" placeholder="Enter Your Username" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" placeholder="Enter Your Password" required>
             </div>
             <input type="submit" value="Submit">
         </form>
@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     //     }
 
     foreach($UserInfo as $info){
-        // $info = trim($info); //trim use for white space deletion.
+        $info = trim($info); //trim use for white space deletion.
         list($user, $pass) = explode(",", $info);
 
         if($user == $userName && $pass == $userPass){
@@ -52,6 +52,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     }
     if($loginSuccess==true){
         echo "Login Success!";
+        $_SESSION['username']=$userName;
         header("Location: main.php");
              }
     else{
