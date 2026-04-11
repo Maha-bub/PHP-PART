@@ -35,7 +35,7 @@ $files = scandir($folder);
 
 foreach($files as $file){
     if($file != "." && $file != ".."){
-        echo "<img src='".$folder.$file."' width='200px' style='margin:10px;'>";
+        echo "<img src='".$folder.$file."' width='200px' height='200px' style='margin:10px;'>";
     }
 }
 ?>
