@@ -1,3 +1,35 @@
+<?php
+if(isset($_POST['btnSubmit'])){
+
+    $userName = $_POST["username"];
+    $userPass = $_POST["password"];
+
+    $file = "database.txt";
+
+        //file theke data read
+    $users = file($file);
+
+    $loginSuccess = false;
+
+    foreach($users as $user){
+        list($storedUser, $storedPass) = explode(",", $user);
+
+        if($storedUser == $userName && $storedPass == $userPass){
+            $loginSuccess = true;
+            break;
+        }
+    }
+
+    if($loginSuccess){
+        echo "Login success!";
+        header("Location: main.php");
+    } else {
+        echo "Username or password invalid!";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,18 +49,3 @@
     </form>
 </body>
 </html>
-<?php
-    if(isset($_POST['btnSubmit'])){
-    $userName=$_POST["username"];
-    $userPass=$_POST["password"];
-
-if($userName=='admin' && $userPass=='123'){
-        echo "Login succes!";
-        header('location:main.php');
-}
-else{
-    echo "Username or password invalid!";
-}
-}
-
-?>
