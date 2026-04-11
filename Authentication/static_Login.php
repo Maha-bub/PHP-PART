@@ -6,7 +6,6 @@ if(isset($_POST['btnSubmit'])){
 
     $file = "database.txt";
 
-        //file theke data read
     $users = file($file);
 
     $loginSuccess = false;
