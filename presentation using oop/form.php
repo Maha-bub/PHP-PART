@@ -8,6 +8,8 @@ if ($_SERVER["REQUEST_METHOD"]==="POST" && isset($_POST["btnsubmit"])) {
     $Course=$_POST["Course"];
     $s = new InfoAll($name, $id, $Course);
     $s->data_Store_Style();
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit();
 }
 
 ?>
@@ -77,19 +79,17 @@ if ($_SERVER["REQUEST_METHOD"]==="POST" && isset($_POST["btnsubmit"])) {
     <button name="btnsubmit">Save</button>
 </form>
 
+
 <table>
-     <?php
-if(isset($_POST["btnsubmit"])){
-    echo "<tr>
+<tr>
     <th>Name</th>
     <th>ID</th>
     <th>Course</th>
-</tr>";
+</tr>
 
-$s = new InfoAll(" ", " ", " ");    
+<?php
+$s = new InfoAll("", "", "");
 $s->display();
-}
-
 ?>
 
 </table>
