@@ -70,7 +70,8 @@ if ($_SERVER["REQUEST_METHOD"]==="POST" && isset($_POST["btnsubmit"])) {
 </head>
 <body>
 
-<h2>Information Form</h2>
+<marquee behavior="focused" direction=""><h2>Student Information Form</h2></marquee>
+<h2>Please Submit Your Information</h2>
 
 <form method="post">
     <input type="text" name="name" placeholder="Name" required><br>
