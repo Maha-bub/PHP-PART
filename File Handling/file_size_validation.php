@@ -17,7 +17,6 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     echo "File size allow to maximum size 400kbyte";
  }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

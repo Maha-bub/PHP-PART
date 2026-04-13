@@ -1,17 +1,29 @@
-    <?php
+<?php
 include "class.php";
 
-// Data Get and check methods.
+// Save Data
 if ($_SERVER["REQUEST_METHOD"]==="POST" && isset($_POST["btnsubmit"])) {
     $name= $_POST["name"];
     $id=$_POST["id"];
     $Course=$_POST["Course"];
+
     $s = new InfoAll($name, $id, $Course);
     $s->data_Store_Style();
+
     header("Location: " . $_SERVER['PHP_SELF']);
     exit();
 }
 
+// Search Data
+$searchResult = "";
+if ($_SERVER["REQUEST_METHOD"]==="POST" && isset($_POST["search"])) {
+    $searchId = $_POST["search_id"];
+
+    $s = new InfoAll("", "", "");
+    ob_start(); // output capture
+    $s->display($searchId);
+    $searchResult = ob_get_clean();
+}
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +82,8 @@ if ($_SERVER["REQUEST_METHOD"]==="POST" && isset($_POST["btnsubmit"])) {
 </head>
 <body>
 
-<h2>Information Form</h2>
+<marquee behavior="focused" direction=""><h2>Student Information Form</h2></marquee>
+<h2>Please Submit Your Information</h2>
 
 <form method="post">
     <input type="text" name="name" placeholder="Name" required><br>
@@ -78,6 +91,27 @@ if ($_SERVER["REQUEST_METHOD"]==="POST" && isset($_POST["btnsubmit"])) {
     <input type="text" name="Course" placeholder="Course" required><br>
     <button name="btnsubmit">Save</button>
 </form>
+
+<h2>Search Result</h2>
+<?php echo $searchResult; ?>
+
+<div class="form-box">
+    <form method="post">
+
+        <div class="form-row">
+            <label>Enter ID:</label>
+            <input type="text" name="search_id" required>
+        </div>
+
+        <button name="search">Search</button>
+
+    </form>
+</div>
+<?php
+$s = new InfoAll("", "", "");
+$s->display();
+?>
+
 
 <table>
 <tr>
@@ -87,8 +121,18 @@ if ($_SERVER["REQUEST_METHOD"]==="POST" && isset($_POST["btnsubmit"])) {
 </tr>
 
 <?php
-$s = new InfoAll("", "", "");
-$s->display();
+if (file_exists("database.txt")) {
+    $rows = file("database.txt");
+
+    foreach ($rows as $row) {
+        $data = explode(",", trim($row));
+        echo "<tr>
+                <td>{$data[0]}</td>
+                <td>{$data[1]}</td>
+                <td>{$data[2]}</td>
+              </tr>";
+    }
+}
 ?>
 
 </table>
