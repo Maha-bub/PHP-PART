@@ -15,6 +15,18 @@ echo hash('sha3-384',$password);
 echo "<br>";
 echo hash('sha512/224',"mahabub                                           0                                                                                                                                                                                                                                                                                                                                                                      ");
 echo "<br>";
- echo hash('sha512',$password);
+ $encrypt=hash('sha512',$password);
+echo "<br>";
+echo "<br>";
+echo "<br>";
+
+password_hash($encrypt, PASSWORD_DEFAULT);
+ if(password_verify($password,$encrypt)){
+    echo "valid";
+
+ }
+ else{
+    echo "Invalid";
+ }
 
 ?>
