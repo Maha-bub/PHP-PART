@@ -28,33 +28,21 @@ class InfoAll extends Person
         file_put_contents("database.txt", $line, FILE_APPEND);
     }
 
-    // 🔍 search by ID
-    function display($searchId)
+    function display()
     {
+
         if (file_exists("database.txt")) {
             $data = file("database.txt");
-            $found = false;
 
-            foreach ($data as $line) {
-                $row = explode(",", trim($line));
+            foreach ($data as $i => $line) {
+                $row = explode(",", $line);
 
-                // id match
-                if ($row[1] == $searchId) {
-                    echo "ID: " . $row[1] . "<br>";
-                    echo "Name: " . $row[0] . "<br>";
-                    echo "Address: " . $row[2] . "<br>";
-                    $found = true;
-                    break;
-                }
+                echo "<tr>
+                        <td>$row[0]</td>
+                        <td>$row[1]</td>
+                        <td>$row[2]</td>
+                    </tr>";
             }
-
-            if (!$found) {
-                echo "Record not found!";
-            }
-
-        } else {
-            echo "File Not Found!";
         }
     }
 }
-?>
