@@ -1,0 +1,274 @@
+<?php
+session_start();
+require 'config.php';
+
+if (isset($_SESSION['user_id'])) {
+    header("Location: dashboard.php");
+    exit;
+}
+
+$error = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = trim($_POST['username']);
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['full_name'] = $user['full_name'];
+        header("Location: dashboard.php");
+        exit;
+    } else {
+        $error = "Invalid username or password.";
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — GalleryHub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a2e;
+    --accent: #e8734a;
+    --accent2: #5b8dee;
+    --surface: #ffffff;
+    --muted: #f4f3ef;
+    --border: #ddd9d0;
+    --error: #d64045;
+  }
+
+  body {
+    min-height: 100vh;
+    background: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+    background-image: radial-gradient(circle at 75% 25%, #c4d5e8 0%, transparent 50%),
+                      radial-gradient(circle at 25% 75%, #e8d5c4 0%, transparent 50%);
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 32px 100px rgba(26,26,46,0.14);
+    animation: fadeUp 0.6s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel-left {
+    background: linear-gradient(145deg, #1a1a2e 0%, #2d2d5e 60%, #3d5a80 100%);
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .panel-left::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: rgba(232,115,74,0.15);
+    border-radius: 50%;
+    top: -80px; right: -80px;
+  }
+
+  .panel-left::after {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    background: rgba(91,141,238,0.15);
+    border-radius: 50%;
+    bottom: -60px; left: -60px;
+  }
+
+  .panel-left .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .panel-left .brand span { color: var(--accent); }
+
+  .panel-left p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  .dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 36px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+  }
+  .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+
+  .panel-right {
+    background: #fff;
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .sub { color: #999; font-size: 0.88rem; margin-bottom: 32px; font-weight: 300; }
+
+  .field { margin-bottom: 20px; }
+
+  label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #777;
+    margin-bottom: 7px;
+  }
+
+  input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--muted);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  input:focus {
+    border-color: var(--accent2);
+    box-shadow: 0 0 0 3px rgba(91,141,238,0.15);
+    background: #fff;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 4px;
+  }
+
+  .btn:hover { background: #2d2d5e; transform: translateY(-1px); }
+
+  .alert-error {
+    background: #fdf0f0;
+    border: 1px solid #f5c6c6;
+    color: var(--error);
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+  }
+
+  .switch {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.88rem;
+    color: #888;
+  }
+
+  .switch a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .switch a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .wrapper { grid-template-columns: 1fr; }
+    .panel-left { padding: 40px 28px; }
+    .panel-right { padding: 40px 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="panel-left">
+    <div class="brand">Gallery<span>Hub</span></div>
+    <p>Your personal image gallery. Upload, manage, and showcase your collection beautifully.</p>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <div class="panel-right">
+    <h2>Welcome back</h2>
+    <p class="sub">Sign in to your account</p>
+
+    <?php if ($error): ?>
+      <div class="alert-error">⚠ <?= htmlspecialchars($error) ?></div>
+    <?php endif; ?>
+
+    <form method="POST">
+      <div class="field">
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Your username" required autofocus>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="••••••••" required>
+      </div>
+      <button type="submit" class="btn">Sign In →</button>
+    </form>
+
+    <div class="switch">
+      Don't have an account? <a href="register.php">Register here →</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

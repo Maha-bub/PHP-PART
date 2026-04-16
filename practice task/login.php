@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+$_SESSION['username'] = $username;
+$_SESSION['email'] = $email;
+
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $userName = trim($_POST['username']);
