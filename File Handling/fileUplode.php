@@ -16,7 +16,9 @@ if(isset($_POST['btnSubmit'])){
 </head>
 <body>
     <form action="" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
+    <input type="text">    
+    <input type="file" name="file">
+
         <input type="submit" name="btnSubmit" value="Upload">
     </form>
 </body>

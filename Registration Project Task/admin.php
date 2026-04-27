@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 $rows = file("db.txt");
 
 foreach($rows as $index => $row){
-    list($id,$name,$img) = explode(",", trim($row));
+    list($id,$name,$email,$img) = explode(",", trim($row));
 ?>
 <tr>
     <td><?php echo $id; ?></td>
